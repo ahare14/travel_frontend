@@ -1,17 +1,19 @@
 import React from 'react'
+import CardContent from './ImageCardContents/CardContent'
+import Icon from '@material-ui/core/Icon';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-export default function ImageCard() {
+export default function ImageCard(props) {
+
+  const displayPost = props.trips.map(trip => {
+    return (
+      <CardContent trip={trip} pics={props.pics}/>
+    )
+  })
+
   return (
-    <div className="post-card">
-      <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/48/5c/af/random-location.jpg"></img>
-      <icon>Favorite Icon</icon>
-      <icon>Like Icon</icon>
-      <h3>Hey</h3>
-      <h5>Username Display</h5>
-      <div>
-        <p>There will be content in here about the image</p>
-      </div>
-      <p>Location Display</p>
+    <div className="card">
+      {displayPost}
     </div>
 
   )

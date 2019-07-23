@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 
 function NavBar() {
   return (
-    <navbar>
+    <navbar className="navbar">
       <Button>Home</Button>
       <Button>Post</Button>
       <Button>Favorite Pictures</Button>

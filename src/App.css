@@ -4,10 +4,68 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* carousel adjustments */
 
-.post-card {
+/* .main {
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+.swiper {
+  display: flex;
+  overflow-x: visible;
+  transition-property: transform;
+  will-change: transform;
+}
+
+img {
+  object-fit: contain;
+} */
+
+/* header and search bar addjustments */
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  display:flex;
+  justify-content: center;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Card CSS below  */
+
+.card {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  position: center;
+  width: 70%;
+}
+.card img {
   display: flex;
 }
-.post-card img {
-  display: flex;
+
+.card-content icon {
+  margin-right: 20px;
+  position: relative;
+  left: 200px
 }
+
+.card-attributes {
+  position: relative;
+  text-align: center;
+}
+
+/* Navigation Bar CSS Below*/
+
+
+
+
+/* Carousel CSS Below */
