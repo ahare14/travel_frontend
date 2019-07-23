@@ -12,7 +12,7 @@ export default function ImageCard(props) {
   })
 
   return (
-    <div className="card">
+    <div>
       {displayPost}
     </div>
 
