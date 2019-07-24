@@ -10,19 +10,19 @@ import NavBar from "./NavBar";
 export default class HomePage extends Component {
   constructor () {
     super ()
-  
+    
   }
+
 
   render () {
     return (
       <div>
         <header>
             <NavBar />
-
             <SearchBar />
           </header>
           <main>
-            <ImageCard trips={this.props.trips} pics={this.props.pics}/>
+            <ImageCard trips={this.props.trips} pics={this.props.pics} />
           </main>
       </div>
     )

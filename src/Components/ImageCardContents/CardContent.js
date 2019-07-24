@@ -1,26 +1,28 @@
-import React from 'react'
+import React, { Component } from 'react'
+
 import Image from './Image'
+import ImageLightBox from './ImageLightBox';
 
-export default function CardContent(props){
 
-  
-  const displayPics = props.pics.map(pic => {
-    if (pic.trip.id === props.trip.id)
+export default class CardContent extends Component{
+ 
+  filterPicsForTrips = () => {
+    return this.props.pics.filter(pic => {
+      return pic.trip.id === this.props.trip.id
+    })
+  }
+
+  render() {
     return (
-      <Image pics={pic}  />
+      <React.Fragment>
+        <div className="card" style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginTop: '30px'}} >
+          <h3>{this.props.trip.title}</h3>
+          <ImageLightBox filteredPics={this.filterPicsForTrips()}/>
+         </div>
+     
+      </React.Fragment>
     )
-  })
-
-  return (
-    <div className="card">
-      <div className="card-content">
-        <icon>Favorite Icon</icon>
-        <icon>Like Icon</icon>
-        {displayPics}
-        <div className="card-attributes">
-          <h3>{props.trip.title}</h3>
-        </div>
-    </div>
-    </div>
-  )
+  }
 }
+
+{/* <Image filteredPics={this.filterPicsForTrips()} /> */}

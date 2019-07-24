@@ -5,8 +5,12 @@
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
+    "font-awesome": "^4.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-image-gallery": "^0.8.18",
+    "react-images": "^1.0.0",
+    "react-lightbox-component": "^1.2.1",
     "react-responsive-carousel": "^3.1.49",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",

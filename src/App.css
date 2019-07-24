@@ -5,22 +5,7 @@
 }
 
 /* carousel adjustments */
-
-/* .main {
-  background-color: #000;
-  overflow: hidden;
-  position: relative;
-}
-.swiper {
-  display: flex;
-  overflow-x: visible;
-  transition-property: transform;
-  will-change: transform;
-}
-
-img {
-  object-fit: contain;
-} */
+x
 
 /* header and search bar addjustments */
 .content {
@@ -36,6 +21,17 @@ img {
 .searchBar {
   display: flex;
   justify-content: center;
+}
+
+.tripCard {
+  display: flex;
+  justify-content: center;
+  padding: 4em 0em 4em
+}
+
+.tripContent {
+  display: flex;
+  justify-content: flex-start;
 }
 
 

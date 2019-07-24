@@ -1,11 +1,11 @@
 import React from 'react';
+import 'font-awesome/css/font-awesome.css'
 
-const LeftArrow = (props) => {
+export default function LeftArrow (props) {
   return (
-    <div className="backArrow" onClick={props.goToPrevSlide}>
-      <i className="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+    <div onClick={props.countIncrease()}style={{fontSize: '2em', marginRight: '12px'}}>
+      <i className="fa fa-angle-left fa-2x" aria-hidden="true"></i>
     </div>
   );
 }
 
-export default LeftArrow;
