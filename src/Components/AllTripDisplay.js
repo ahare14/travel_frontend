@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import TripContainer from './AltCardDisplay/TripContainer';
 import MapContainer from './MapComponents/MapContainer';
 import Geocode from "react-geocode";
-import AddTripButton from './PostNewTrips/InputField'
+import AddTripButton from './PostNewTrips/AddTripButton'
 
 
 Geocode.setApiKey('AIzaSyB31ElkAZ5mYl1cG0bPjdhzd8EtFY6rplg')
@@ -14,6 +14,8 @@ export default class AllTripDisplay extends Component {
   constructor () {
     super ()
     this.state = {
+      userId: 1,
+      tripTitle: '',
       activeTrip: null,
       location: {
         lat: 0.0,
@@ -28,10 +30,9 @@ export default class AllTripDisplay extends Component {
     }
   }
 
-  selectTrip = (event) => {
-    const coordniate = (event.target.alt).split(',')
-    const latitude = +coordniate[0]
-    const longitude = +coordniate[1]
+  selectTrip = (lat, lng) => {
+    const latitude = +lat
+    const longitude = +lng
     this.setState(state => {
       state.location.lat = latitude
       state.location.lng = longitude
@@ -85,7 +86,7 @@ export default class AllTripDisplay extends Component {
         longitude: this.state.location.lng
       }
     }
-    this.props.postTrip(apiBody)
+    this.props.postPhoto(apiBody)
     // this.setState( state => {
     //   state.title = ''
     //   state.description = ''
@@ -98,6 +99,20 @@ export default class AllTripDisplay extends Component {
     return apiBody
   }
 
+  addTrip = () => {
+    const apiBody = {
+      trip : {
+        user_id: this.state.userId,
+        title: this.state.tripTitle
+      }
+    }
+    this.props.postTrip(apiBody)
+    this.setState( state => {
+      state.tripTitle = ''
+      return state
+    })
+  }
+
   render () {
     return (
       <React.Fragment>
@@ -105,7 +120,7 @@ export default class AllTripDisplay extends Component {
           <NavBar />
         </header>
         <main>
-          <AddTripButton />
+          <AddTripButton updateForm={this.updateForm} addTrip={this.addTrip}/>
           <div className='trip-container'>
             <TripContainer 
               trips={this.props.trips} 
@@ -127,4 +142,3 @@ export default class AllTripDisplay extends Component {
     )
   }
 }
-{/* <ImageCard trips={this.props.trips} pics={this.props.pics} /> */}

@@ -1,41 +1,25 @@
-// import React from 'react';
-// import Button from '@material-ui/core/Button';
-// import Link from '@material-ui/core/Link';
-
-// function NavBar() {
-//   return (
-//     <navbar className="navbar">
-//       <Link href='/homepage'>
-//         <Button>Home</Button>
-//       </Link>
-//       <Link href='/newtrip'>
-//         <Button>Post</Button>
-//       </Link>
-//       <Button>Favorite Pictures</Button>
-//       <Button>Trip Generator</Button>
-//     </navbar>
-
-//   )
-// }
-
-// export default NavBar ;
-
 import React from 'react';
+import logo from './logo.png'
 import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
     backgroundColor: '#5AAA95',
     position: 'fixed',
     width: "100%",
     zIndex: 900,
-    marginTop: -10
+    marginTop: -10,
+  
   },
+  tab: {
+    gridColumnStart: '2',
+    marginTop: '15px'
+  }
 });
 
 export default function NavBar() {
@@ -49,11 +33,15 @@ export default function NavBar() {
   return (
     <React.Fragment>
       <Paper className={classes.root}>
+          <div>
+            <img style={{width: '200px', height: '80%', marginBottom:"-5px"}} src={logo} />
+          </div>
         <Tabs
+          className={classes.tab}
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
-          textColor="primary"
+          textColor="inherit"
           centered
         >
           <Tab label="Home" href="/homepage" />

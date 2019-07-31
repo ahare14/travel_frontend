@@ -84,6 +84,7 @@ export default function AddTripButton(props) {
   }
 
   function handleClose() {
+    props.addTrip()
     setOpen(false);
   }
 
@@ -109,9 +110,9 @@ export default function AddTripButton(props) {
         <DialogContent>
           <TextField
             autoFocus
-            // onChange={updateFrom}
+            onChange={props.updateForm}
             margin="dense"
-            name="title"
+            name="tripTitle"
             label="Title"
             type="text"
             fullWidth

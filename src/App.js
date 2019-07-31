@@ -4,8 +4,6 @@ import SignIn from './Components/LoginSignUp/SignIn'
 import SignUp from './Components/LoginSignUp/SignUp'
 import AllTripDisplay from './Components/AllTripDisplay'
 import PostTripForm from './Components/PostNewTrips/PostTripForm';
-// import HomePage from './Components/HomePage'
-// import Lightbox from "react-lightbox-component";
 import './App.css';
 
 const tripAPI = 'https://travel-backend-14.herokuapp.com/trips'
@@ -80,13 +78,23 @@ class App extends Component {
     })
   }
 
-  postTrip(apibody) {
+  postPhoto(apiBody) {
     fetch("https://travel-backend-14.herokuapp.com/pictures", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(apibody)
+      body: JSON.stringify(apiBody)
+    }).catch(error => console.error(error.message))
+  }
+
+  postTrip(apiBody) {
+    fetch("https://travel-backend-14.herokuapp.com/trips", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(apiBody)
     }).catch(error => console.error(error.message))
   }
 
@@ -104,14 +112,12 @@ class App extends Component {
         <React.Fragment>
           <Route path='/signin' exact component={SignIn}/>
           <Route path='/signup' component={SignUp} />
-          <Route path='/newtrip' render={ 
-            props => <PostTripForm {...props}
-            postTrip={this.postTrip}/>} />
           <Route path='/homepage' 
             render={ 
               props => 
               <AllTripDisplay {...props}
               updatePicArray={this.updatedPicState}
+              postPhoto={this.postPhoto}
               postTrip={this.postTrip}
               trips={this.state.trips}
               pics={this.state.pictures}
