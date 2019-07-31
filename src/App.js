@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 import SignIn from './Components/LoginSignUp/SignIn'
 import SignUp from './Components/LoginSignUp/SignUp'
 import AllTripDisplay from './Components/AllTripDisplay'
-import PostTripForm from './Components/PostNewTrips/PostTripForm';
+import FavoritesPage from './Components/FavoriteComponent/FavoritesPage';
 import './App.css';
 
 const tripAPI = 'https://travel-backend-14.herokuapp.com/trips'
@@ -29,8 +29,8 @@ class App extends Component {
     this.getUsers(userAPI)
   }
   
-  getTrips(url) {
-    fetch(url)
+  getTrips = () => {
+    fetch('https://travel-backend-14.herokuapp.com/trips')
       .then(response => response.json())
       .then(result => this.setState({
         trips: result
@@ -47,7 +47,7 @@ class App extends Component {
       .catch(error => console.error('errors', error))
   }
  
-  getPics() {
+  getPics(){
     fetch('https://travel-backend-14.herokuapp.com/pictures')
       .then(response => response.json())
       .then(result => this.setState({
@@ -78,7 +78,7 @@ class App extends Component {
     })
   }
 
-  postPhoto(apiBody) {
+  postPhoto = (apiBody) => {
     fetch("https://travel-backend-14.herokuapp.com/pictures", {
       method: "POST",
       headers: {
@@ -86,9 +86,10 @@ class App extends Component {
       },
       body: JSON.stringify(apiBody)
     }).catch(error => console.error(error.message))
+    .then(response => this.getPics())
   }
 
-  postTrip(apiBody) {
+  postTrip = (apiBody) => {
     fetch("https://travel-backend-14.herokuapp.com/trips", {
       method: "POST",
       headers: {
@@ -96,6 +97,7 @@ class App extends Component {
       },
       body: JSON.stringify(apiBody)
     }).catch(error => console.error(error.message))
+    .then(response => this.getTrips())
   }
 
   updatedPicState = (newPic) => {
@@ -112,6 +114,7 @@ class App extends Component {
         <React.Fragment>
           <Route path='/signin' exact component={SignIn}/>
           <Route path='/signup' component={SignUp} />
+          <Route path='/favorites' component={FavoritesPage} />
           <Route path='/homepage' 
             render={ 
               props => 

@@ -36,14 +36,17 @@ main {
 
 .trip-heading {
   grid-column-end: span 2;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .trip-heading h3 {
   grid-column-end: 2;
   margin-left: 5px;
+  width: 100%;
+  text-align: right;
   /* padding-left:  */
   font-weight: bolder;
   font-size: 1.2em;
@@ -125,3 +128,13 @@ header {
   margin-bottom: 2em;
 }
 
+.favorites {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 250px auto 250px;
+}
+
+.favorites h1 {
+  width: 100%;
+  border: 1px solid black;
+}

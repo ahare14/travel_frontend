@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.png'
+import logo3 from './Logo3.png'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -34,7 +34,7 @@ export default function NavBar() {
     <React.Fragment>
       <Paper className={classes.root}>
           <div>
-            <img style={{width: '200px', height: '80%', marginBottom:"-5px"}} src={logo} />
+            <img style={{width: '200px', height: '90%', marginBottom:"-5px"}} src={logo3} />
           </div>
         <Tabs
           className={classes.tab}
@@ -45,7 +45,7 @@ export default function NavBar() {
           centered
         >
           <Tab label="Home" href="/homepage" />
-          <Tab label="Favorites" />
+          <Tab label="Favorites" href="/favorites" />
           <Tab label="Trip Generator" /> 
         </Tabs>
       </Paper>

@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "opaque"
   },
   margin: {
-    gridColumnStart: 3,   
+    gridColumnStart: 3,
+    justifyContent: 'center'   
   },
   extendedIcon: {
     marginRight: theme.spacing(1),
