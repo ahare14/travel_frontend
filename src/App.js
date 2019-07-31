@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 import SignIn from './Components/LoginSignUp/SignIn'
 import SignUp from './Components/LoginSignUp/SignUp'
 import AllTripDisplay from './Components/AllTripDisplay'
+import PostTripForm from './Components/PostNewTrips/PostTripForm';
 // import HomePage from './Components/HomePage'
 // import Lightbox from "react-lightbox-component";
 import './App.css';
@@ -10,8 +11,6 @@ import './App.css';
 const tripAPI = 'https://travel-backend-14.herokuapp.com/trips'
 const userAPI = 'https://travel-backend-14.herokuapp.com/users'
 const picAPI = 'https://travel-backend-14.herokuapp.com/pictures'
-
-
 
 class App extends Component {
   constructor () {
@@ -21,6 +20,7 @@ class App extends Component {
       trips: [],
       pictures: [],
       locations: [],
+      favorite: []
     }
   }
 
@@ -49,10 +49,9 @@ class App extends Component {
       .catch(error => console.error('errors', error))
   }
  
-  getPics(url) {
-    fetch(url)
+  getPics() {
+    fetch('https://travel-backend-14.herokuapp.com/pictures')
       .then(response => response.json())
-      // .then(result => console.log(result))
       .then(result => this.setState({
         pictures: result
       }))
@@ -80,36 +79,49 @@ class App extends Component {
       locations: locationArray
     })
   }
- 
-  
+
+  postTrip(apibody) {
+    fetch("https://travel-backend-14.herokuapp.com/pictures", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(apibody)
+    }).catch(error => console.error(error.message))
+  }
+
+  updatedPicState = (newPic) => {
+    this.setState(state => {
+      state.pictures = [...this.state.pictures, newPic]
+      return state
+    })
+  }
+
 
   render () {
-    // console.log('app level', this.state.pictures)
     return (
       <Router>
-        <div>
+        <React.Fragment>
           <Route path='/signin' exact component={SignIn}/>
           <Route path='/signup' component={SignUp} />
+          <Route path='/newtrip' render={ 
+            props => <PostTripForm {...props}
+            postTrip={this.postTrip}/>} />
           <Route path='/homepage' 
             render={ 
-              props => <AllTripDisplay {...props}
+              props => 
+              <AllTripDisplay {...props}
+              updatePicArray={this.updatedPicState}
+              postTrip={this.postTrip}
               trips={this.state.trips}
-              pics={this.state.pictures}/>
+              pics={this.state.pictures}
+              locations={this.state.locations}/>
             }
           />
-        </div>
+        </React.Fragment>
       </Router>
     )
   }
 }
 
 export default App;
-
-{/* <Route path='/homepage' 
-  render={ props => 
-    <HomePage {...props} 
-    trips={this.state.trips} 
-    pics={this.state.pictures} 
-    /> 
-  } 
-/> */}

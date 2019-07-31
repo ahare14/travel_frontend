@@ -1,67 +1,123 @@
 /* @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;  
+  
 }
 
 /* carousel adjustments */
-x
 
-/* header and search bar addjustments */
-.content {
-  display: flex;
+main {
+  display: grid;
+  justify-items: center;
+  background-color: #E8EEF2;
+  padding-top: 35px;
+  grid-template-columns: 125px 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.trip-container {
+  grid-column-start: 2;
+}
+.card-grid-container {
+  /* border: 1px solid black; */
+  box-shadow: 0px 1px 1px #5AAA95;
+  width: 100%;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: white;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.trip-heading {
+  grid-column-end: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
 }
 
-.navbar {
-  display:flex;
+.trip-heading h3 {
+  grid-column-end: 2;
+  margin-left: 5px;
+  /* padding-left:  */
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+
+
+.card-grid {
+  width: 100%;
+  grid-column-end: span 2;
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-grid-item {
+  border: 1px solid black;
+  width: 300px;
+  height: 300px;
+}
+
+.card-grid-item img {
+  background-size: contain;
+  margin: auto;
+  display: block;
+  width: 75%;
+  height: 75%,
+}
+
+.post-page {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.post-trip-container {
+  grid-column-start: 2;
+  border: 1px solid black;
+}
+
+.miniMap {
+  position: fixed !important;
+  width: 40% !important;
+  height: 900px !important;
+  box-shadow: 0px 5px 5px #5AAA95 !important;
+  border-radius: 10px !important;
+  margin-left: -35rem;
+}
+
+
+
+
+
+/* header and search bar addjustments */
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.navbar {
+  position: fixed;
+  background-color: aqua;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  display:flex;
+  /* grid-column-start: 2; */
+  justify-content: center;
+  margin-bottom: 2em;
 }
 
 .searchBar {
   display: flex;
   justify-content: center;
+  margin-bottom: 2em;
 }
 
-.tripCard {
-  display: flex;
-  justify-content: center;
-  padding: 4em 0em 4em
-}
-
-.tripContent {
-  display: flex;
-  justify-content: flex-start;
-}
-
-
-/* Card CSS below  */
-
-.card {
-  display: flex;
-  justify-content: center;
-  border-style: solid;
-  position: center;
-  width: 70%;
-}
-.card img {
-  display: flex;
-}
-
-.card-content icon {
-  margin-right: 20px;
-  position: relative;
-  left: 200px
-}
-
-.card-attributes {
-  position: relative;
-  text-align: center;
-}
-
-/* Navigation Bar CSS Below*/
-
-
-
-
-/* Carousel CSS Below */

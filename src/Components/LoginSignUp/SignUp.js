@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link as RouterLink} from "react-router-dom";
 import { BrowserRouter as Router } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -15,18 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-function MadeWithLove() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Built with love by the '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI
-      </Link>
-      {' team.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -35,6 +22,8 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     marginTop: theme.spacing(8),
+    gridColumnStart: 'span 3',
+    justifyContent: 'center',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -57,8 +46,7 @@ export default function SignUp() {
 
   return (
     <Router> 
-
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="L">
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -115,12 +103,6 @@ export default function SignUp() {
                   autoComplete="current-password"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
             </Grid>
             <Button
               type="submit"
@@ -140,9 +122,6 @@ export default function SignUp() {
             </Grid>
           </form>
         </div>
-        <Box mt={5}>
-          <MadeWithLove />
-        </Box>
       </Container>
     </Router>
   );
