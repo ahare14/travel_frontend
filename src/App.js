@@ -15,6 +15,7 @@ class App extends Component {
     super ()
     this.state = {
       users: [],
+      currentUser: 1,
       trips: [],
       pictures: [],
       locations: [],
@@ -157,8 +158,8 @@ class App extends Component {
             render={
               props=> 
               <FavoritesPage {...props}
-                allFavorites={this.state.favorites}
-                
+                allFavorites={this.state.allFavorites}
+                currentUser={this.state.currentUser}
               />
             }
           />

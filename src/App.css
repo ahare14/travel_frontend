@@ -129,10 +129,13 @@ header {
 }
 
 .favorites {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 250px auto 250px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* grid-template-columns: 250px auto 250px; */
 }
+
+.favorite-container
 
 .favorites h1 {
   width: 100%;

@@ -26,7 +26,6 @@ export default class AllTripDisplay extends Component {
       description: '',
       place: '',
       img: '',
-      // openDialogBox: false,
       favorites: []
     }
   }
