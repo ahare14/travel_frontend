@@ -10,14 +10,14 @@ export default class AltCard extends Component {
     })
   }
 
-  handleClick = () => {
-    console.log('hello')
-  }
   render(){
     return (
       <React.Fragment >
         <div className='card-grid'>
-          <GridLayout filteredPics={this.filterPicsForTrips()} selectTrip={this.props.selectTrip} clickFunc={this.handleClick} />
+          <GridLayout 
+            filteredPics={this.filterPicsForTrips()} 
+            selectTrip={this.props.selectTrip} 
+            addToFavorites={this.props.addToFavorites} />
         </div>
       </React.Fragment>
     )

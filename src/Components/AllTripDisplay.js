@@ -26,7 +26,8 @@ export default class AllTripDisplay extends Component {
       description: '',
       place: '',
       img: '',
-      openDialogBox: false
+      // openDialogBox: false,
+      favorites: []
     }
   }
 
@@ -73,7 +74,6 @@ export default class AllTripDisplay extends Component {
       return state
     }))
     .then(response => this.addPhotoToTrip())
-    // .then(response => this.props.updatePicArray(response))
   }
 
   addPhotoToTrip = () => {
@@ -113,6 +113,18 @@ export default class AllTripDisplay extends Component {
     })
   }
 
+  updatedPicState = (newPic) => {
+    this.setState(state => {
+      state.pictures = [...this.state.pictures, newPic]
+      return state
+    })
+  }
+
+
+  addToFavorites = () => {
+    console.log('hello')
+  }
+
   render () {
     return (
       <React.Fragment>
@@ -123,6 +135,7 @@ export default class AllTripDisplay extends Component {
           <AddTripButton updateForm={this.updateForm} addTrip={this.addTrip}/>
           <div className='trip-container'>
             <TripContainer 
+              addToFavorites={this.props.addToFavorites}
               trips={this.props.trips} 
               pics={this.props.pics} 
               selectTrip={this.selectTrip}

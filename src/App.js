@@ -18,15 +18,17 @@ class App extends Component {
       trips: [],
       pictures: [],
       locations: [],
-      favorite: []
+      allFavorites: [],
+      favorites: []
     }
   }
 
   componentDidMount() {
-    this.getPics(picAPI)
+    this.getPics()
     this.getLocation(picAPI)
-    this.getTrips(tripAPI)
+    this.getTrips()
     this.getUsers(userAPI)
+    this.getFavorites()
   }
   
   getTrips = () => {
@@ -36,6 +38,15 @@ class App extends Component {
         trips: result
       }))
       .catch(error => console.error('errors', error))
+  }
+
+  getFavorites = () => {
+    fetch('https://travel-backend-14.herokuapp.com/favorites')
+    .then(response => response.json())
+    .then(result => this.setState({
+      allFavorites: result
+    }))
+    .catch(error => console.error('errors', error))
   }
  
   getUsers(url) {
@@ -100,12 +111,40 @@ class App extends Component {
     .then(response => this.getTrips())
   }
 
-  updatedPicState = (newPic) => {
+  postFavorites = (apiBody) => {
+    fetch("https://travel-backend-14.herokuapp.com/favorites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(apiBody)
+    }).catch(error => console.error(error.message))
+    .then(response => this.getFavorites())
+  }
+
+  // updatedPicState = (newPic) => {
+  //   this.setState(state => {
+  //     state.pictures = [...this.state.pictures, newPic]
+  //     return state
+  //   })
+  // }
+
+  addToFavorites = (tile) => {
+    const newSingleImage = tile
+    const apiBody = {
+      favorite: {
+        user_id: 1,
+        picture_id: tile.id
+      }
+    }
     this.setState(state => {
-      state.pictures = [...this.state.pictures, newPic]
+      state.favorites = [...this.state.favorites, newSingleImage]
       return state
     })
+    this.postFavorites(apiBody)
   }
+
+
 
 
   render () {
@@ -114,11 +153,20 @@ class App extends Component {
         <React.Fragment>
           <Route path='/signin' exact component={SignIn}/>
           <Route path='/signup' component={SignUp} />
-          <Route path='/favorites' component={FavoritesPage} />
+          <Route path='/favorites' 
+            render={
+              props=> 
+              <FavoritesPage {...props}
+                allFavorites={this.state.favorites}
+                
+              />
+            }
+          />
           <Route path='/homepage' 
             render={ 
               props => 
               <AllTripDisplay {...props}
+              addToFavorites={this.addToFavorites}
               updatePicArray={this.updatedPicState}
               postPhoto={this.postPhoto}
               postTrip={this.postTrip}
@@ -132,5 +180,4 @@ class App extends Component {
     )
   }
 }
-
 export default App;

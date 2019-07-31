@@ -114,7 +114,11 @@ export default function TripContainer(props) {
             </DialogActions>
           </Dialog>
         </div>
-        <AltCard key={index} trip={trip} pics={props.pics} selectTrip={props.selectTrip} />
+        <AltCard key={index} 
+          trip={trip} 
+          pics={props.pics} 
+          selectTrip={props.selectTrip} 
+          addToFavorites={props.addToFavorites} />
       </div>
     )
   })

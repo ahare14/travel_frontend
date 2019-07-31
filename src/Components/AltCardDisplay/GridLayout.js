@@ -35,13 +35,20 @@ export default function GridLayout(props) {
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
         {props.filteredPics.map((tile, index) => (
-          <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} rows={tile.featured ? 2 : 1} onClick={() => props.selectTrip(tile.latitude, tile.longitude)} >
+          <GridListTile 
+            key={tile.img} 
+            cols={tile.featured ? 2 : 1} 
+            rows={tile.featured ? 2 : 1} 
+            onClick={() => props.selectTrip(tile.latitude, tile.longitude)} >
             <img src={tile.img_url} alt={index}/>
             <GridListTileBar
               title={tile.description}
               titlePosition="top"
               actionIcon={
-                <IconButton aria-label={`star ${tile.description}`} className={classes.icon} onClick={props.clickFunc} >
+                <IconButton 
+                  aria-label={`star ${tile.description}`} 
+                  className={classes.icon} 
+                  onClick={() => props.addToFavorites(tile)} >
                   <StarBorderIcon />
                 </IconButton>
               }
