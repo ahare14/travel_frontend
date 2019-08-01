@@ -49,7 +49,7 @@ export default function NavBar() {
         >
           <Tab label="Home" href="/homepage" />
           <Tab label="Favorites" href="/favorites" />
-          <Tab label="Trip Generator" /> 
+          <Tab label="Trip Generator" href="/generator" /> 
         </Tabs>
         <Link href='/signin'>
           <Button style={{marginTop: '20px', marginLeft: '550px'}}>

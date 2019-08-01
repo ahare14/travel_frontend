@@ -42,8 +42,8 @@ export default function FavoriteCard(props) {
           <Button size="small" color="primary"  onClick={() => props.delete(props.favorite.id)}>
             <DeleteIcon />
           </Button>
-          <Button size="small" color="primary" onClick={() => props.address}>
-            Learn More
+          <Button size="small" color="primary" name='location' onClick={() => props.handleClick(props.favorite.location)}>
+            Visit!
           </Button>
         </CardActions>
       </Card>

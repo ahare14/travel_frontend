@@ -4,6 +4,7 @@ import SignIn from './Components/LoginSignUp/SignIn'
 import SignUp from './Components/LoginSignUp/SignUp'
 import AllTripDisplay from './Components/AllTripDisplay'
 import FavoritesPage from './Components/FavoriteComponent/FavoritesPage';
+import TripGenerator from './Components/TripGenerator/TripGenerator';
 import './App.css';
 
 const tripAPI = 'https://travel-backend-14.herokuapp.com/trips'
@@ -181,6 +182,7 @@ class App extends Component {
         <React.Fragment>
           <Route path='/signin' exact component={SignIn}/>
           <Route path='/signup' component={SignUp} />
+          <Route path='/generator' component={TripGenerator} />
           <Route path='/favorites' 
             render={
               props=> 
