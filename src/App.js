@@ -20,7 +20,8 @@ class App extends Component {
       pictures: [],
       locations: [],
       allFavorites: [],
-      favorites: []
+      favorites: [],
+      compiledFav: []
     }
   }
 
@@ -30,6 +31,7 @@ class App extends Component {
     this.getTrips()
     this.getUsers(userAPI)
     this.getFavorites()
+    this.getFavorites2()
   }
   
   getTrips = () => {
@@ -47,6 +49,13 @@ class App extends Component {
     .then(result => this.setState({
       allFavorites: result
     }))
+    .catch(error => console.error('errors', error))
+  }
+
+  getFavorites2 = () => {
+    fetch('https://travel-backend-14.herokuapp.com/favorites')
+    .then(response => response.json())
+    .then(result => this.favoriteCompiler(result))
     .catch(error => console.error('errors', error))
   }
  
@@ -90,6 +99,22 @@ class App extends Component {
     })
   }
 
+  favoriteCompiler = (result) => {
+    const favArray = result.reduce((array, fav) => {
+      const favObj = {
+        id: fav.id,
+        location: {lat: fav.picture.latitude, lng: fav.picture.longitude},
+        description: fav.picture.description,
+        img: fav.picture.img_url
+      }
+      array.push(favObj)
+      return array
+    }, [])
+    this.setState({
+      compiledFav: favArray
+    })
+  }
+
   postPhoto = (apiBody) => {
     fetch("https://travel-backend-14.herokuapp.com/pictures", {
       method: "POST",
@@ -123,12 +148,17 @@ class App extends Component {
     .then(response => this.getFavorites())
   }
 
-  // updatedPicState = (newPic) => {
-  //   this.setState(state => {
-  //     state.pictures = [...this.state.pictures, newPic]
-  //     return state
-  //   })
-  // }
+  deleteFavorite = (event) => {
+    const id = event
+    console.log('delete', id)
+    const deleteUrl = `https://travel-backend-14.herokuapp.com/favorites/${id}`
+    fetch(deleteUrl, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => this.getFavorites2())
+  }
 
   addToFavorites = (tile) => {
     const newSingleImage = tile
@@ -145,9 +175,6 @@ class App extends Component {
     this.postFavorites(apiBody)
   }
 
-
-
-
   render () {
     return (
       <Router>
@@ -159,7 +186,9 @@ class App extends Component {
               props=> 
               <FavoritesPage {...props}
                 allFavorites={this.state.allFavorites}
+                compiledFavs={this.state.compiledFav}
                 currentUser={this.state.currentUser}
+                delete={this.deleteFavorite}
               />
             }
           />

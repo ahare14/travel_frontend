@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
+import logo3 from '../Logo3.png'
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -20,21 +21,21 @@ const useStyles = makeStyles(theme => ({
     },
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: '-10px',
     gridColumnStart: 'span 3',
     justifyContent: 'center',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
+  // avatar: {
+  //   margin: theme.spacing(1),
+  //   backgroundColor: theme.palette.common.white,
+  // },
+  // form: {
+  //   width: '100%', // Fix IE 11 issue.
+  //   marginTop: theme.spacing(1),
+  // },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -48,9 +49,9 @@ export default function SignIn() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <div>
+            <img style={{width: '200px', height: '90%', marginBottom:"70px"}} src={logo3} alt='logo' />
+          </div>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -60,6 +61,7 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
+              defaultValue="alexanderhare14@gmail.com"
               id="email"
               label="Email Address"
               name="email"
@@ -71,19 +73,20 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
+              defaultValue="password1"
               name="password"
               label="Password"
               type="password"
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Link href='/homepage'>
               <Button
-                type="submit"
+                // type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
@@ -91,7 +94,6 @@ export default function SignIn() {
               >
                 Sign In
               </Button>
-
             </Link>
             <Grid container>
               <Grid item xs>               

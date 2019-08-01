@@ -119,11 +119,6 @@ export default class AllTripDisplay extends Component {
     })
   }
 
-
-  addToFavorites = () => {
-    console.log('hello')
-  }
-
   render () {
     return (
       <React.Fragment>

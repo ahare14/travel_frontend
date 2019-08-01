@@ -1,14 +1,18 @@
 /* @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
 
 * {
-  font-family: 'Roboto', sans-serif;  
-  
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  min-height: 100%;
+  background-color: #E8EEF2;
 }
 
 /* carousel adjustments */
 
 main {
   display: grid;
+  min-height: 100%;
   justify-items: center;
   background-color: #E8EEF2;
   padding-top: 65px;
@@ -89,14 +93,19 @@ main {
 .miniMap {
   position: fixed !important;
   width: 40% !important;
-  height: 860px !important;
+  height: 840px !important;
   box-shadow: 0px 5px 5px #5AAA95 !important;
   border-radius: 10px !important;
   margin-left: -35rem;
 }
 
-
-
+/* #root {
+  margin-top: 10em
+} */
+/* 
+div.MuiContainer-root > div.MuiContainer-maxWidthXs {
+  margin-top: 100px
+} */
 
 
 /* header and search bar addjustments */
@@ -131,11 +140,22 @@ header {
 .favorites {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  /* grid-template-columns: 250px auto 250px; */
+  justify-content: center;
+  background-color: #E8EEF2;
+  height: 100vh;
 }
 
-.favorite-container
+.favorite-container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  /* align-items: center; */
+  /* margin: 0 auto; */
+}
+
+
 
 .favorites h1 {
   width: 100%;

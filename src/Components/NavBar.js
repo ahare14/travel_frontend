@@ -4,6 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Eject from '@material-ui/icons/Eject'
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +37,7 @@ export default function NavBar() {
     <React.Fragment>
       <Paper className={classes.root}>
           <div>
-            <img style={{width: '200px', height: '90%', marginBottom:"-5px"}} src={logo3} />
+            <img style={{width: '200px', height: '90%', marginBottom:"-5px"}} src={logo3} alt='logo'  />
           </div>
         <Tabs
           className={classes.tab}
@@ -48,6 +51,12 @@ export default function NavBar() {
           <Tab label="Favorites" href="/favorites" />
           <Tab label="Trip Generator" /> 
         </Tabs>
+        <Link href='/signin'>
+          <Button style={{marginTop: '20px', marginLeft: '550px'}}>
+            <Eject />
+          </Button>
+        </Link>
+
       </Paper>
     </React.Fragment>
   );

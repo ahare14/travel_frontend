@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import logo3 from '../Logo3.png'
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   paper: {
-    marginTop: theme.spacing(8),
+    // marginTop: theme.spacing(8),
     gridColumnStart: 'span 3',
     justifyContent: 'center',
     display: 'flex',
@@ -46,12 +47,12 @@ export default function SignUp() {
 
   return (
     <Router> 
-      <Container component="main" maxWidth="L">
+      <Container component="main" maxWidth="S" style={{display: 'flex', justifyContent: 'center', maxWidth: '500px'}}>
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <div>
+            <img style={{width: '200px', height: '90%', marginBottom:"20px"}} src={logo3} alt='logo' />
+          </div>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
@@ -61,6 +62,7 @@ export default function SignUp() {
                 <TextField
                   autoComplete="fname"
                   name="firstName"
+                  defaultValue='Alex'
                   variant="outlined"
                   required
                   fullWidth
@@ -74,6 +76,7 @@ export default function SignUp() {
                   variant="outlined"
                   required
                   fullWidth
+                  defaultValue='Hare'
                   id="lastName"
                   label="Last Name"
                   name="lastName"
@@ -85,6 +88,7 @@ export default function SignUp() {
                   variant="outlined"
                   required
                   fullWidth
+                  defaultValue='alexanderhare14@gmail.com'
                   id="email"
                   label="Email Address"
                   name="email"
@@ -96,6 +100,7 @@ export default function SignUp() {
                   variant="outlined"
                   required
                   fullWidth
+                  defaultValue='password1'
                   name="password"
                   label="Password"
                   type="password"
@@ -104,15 +109,17 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign Up
-            </Button>
+            <Link href='/signin'>
+              <Button
+                // type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Sign Up
+              </Button>
+            </Link>
             <Grid container justify="flex-end">
               <Grid item>
                 <Link href="/signin" variant="body2">
