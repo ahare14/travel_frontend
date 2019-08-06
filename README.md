@@ -8,7 +8,14 @@ The platform looks to move photos beyond the static level of presentation, but g
 
 # Farther - Build
 
-The frontend of the application is built using React and the backend is built using Ruby on Rails.  The application also utilizes the Google Developer Console to generate coordinates, addresses, and map rendering (click here to create an api key)
+The frontend of the application is built using React and the backend is built using Ruby on Rails.  The application also utilizes the Google Developer Console to generate coordinates, addresses, and map rendering (click here to create an api key
+
+## Farther - Run Instructions 
+
+- Fork 🍴
+- ```git clone ```
+- ``` npm install ```
+- ``` npm start ```
 
 # Farther - Usage
 
