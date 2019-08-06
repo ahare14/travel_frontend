@@ -12,23 +12,37 @@ The frontend of the application is built using React and the backend is built us
 
 # Farther - Usage
 
-Homepage - here the user can has a newsfeed to view post of other trips from their friends / community users.
+Homepage - here the user can has a newsfeed to view post of other trips from their friends / community users:
 
 ![Alt text](src/ScreenshotFolder/newsfeed_screenshot.png?raw=true "Optional Title")
 ![](src/GifFolder/newsfeed.gif)
 
+See the location for each picture render on the map:
 
-
-
-![Alt text](src/ScreenshotFolder/favContent.png?raw=true "Optional Title")
-![](src/GifFolder/favorite_folder_interaction.gif)
-![Alt text](src/ScreenshotFolder/addTrip_screenShot.png?raw=true "Optional Title")
-![](src/GifFolder/addTrip.gif)
 ![](src/GifFolder/photo_location_plotting.gif)
-![Alt text](src/ScreenshotFolder/addPicture_screenshot.png?raw=true "Optional Title")
+
+Add a new Trip:
+
+![](src/GifFolder/addTrip.gif)
+![Alt text](src/ScreenshotFolder/addTrip_screenShot.png?raw=true "Optional Title")
+
+Upload photos to a trip, and have the location render on the map:
+
 ![](src/GifFolder/photoupload.gif)
+![Alt text](src/ScreenshotFolder/addPicture_screenshot.png?raw=true "Optional Title")
+
+Save trips and view all your favorites:
+
 ![Alt text](src/ScreenshotFolder/fav_screenshot.png?raw=true "Optional Title")
 ![](src/GifFolder/view_saved_photos.gif)
+
+View your saved photo information:
+
+![](src/GifFolder/favorite_folder_interaction.gif)
+![Alt text](src/ScreenshotFolder/favContent.png?raw=true "Optional Title")
+
+
+
 
 
 
