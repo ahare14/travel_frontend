@@ -1,2 +1,4 @@
-![](Animated GIF-downsized.gif.gif)
+![](src/GifFolder/newsfeed.gif)
+
+
 
