@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function AddTripButton(props) {
-  // const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
 
@@ -42,17 +41,12 @@ export default function AddTripButton(props) {
 
   return (
     <div>
-      <Fab style={{position: 'fixed', marginLeft: '50px'}}color="secondary" aria-label="add" onClick={handleClickOpen} >
+      <Fab style={{position: 'fixed', marginLeft: '-25px', marginRight:'-25px'}}color="secondary" aria-label="add" onClick={handleClickOpen} >
         <LibraryAdd />
       </Fab>
       <Dialog open={open} 
         onClose={cancel} 
-        // aria-labelledby="form-dialog-title"  
         aria-labelledby="simple-dialog-title"
-        // BackdropProps={{
-        //   classes: {root: classes.root}
-        //   }
-        // }>
         >
         <DialogTitle id="form-dialog-title">Add a New Trip</DialogTitle>
         <DialogContent>

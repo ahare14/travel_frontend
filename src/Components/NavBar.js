@@ -11,7 +11,7 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles({
   root: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: '1fr auto 1fr',
     backgroundColor: '#5AAA95',
     position: 'fixed',
     width: "100%",
@@ -19,9 +19,13 @@ const useStyles = makeStyles({
     marginTop: -10,
   
   },
-  tab: {
+  tabs: {
     gridColumnStart: '2',
-    marginTop: '15px'
+    marginTop: '15px',
+  },
+  tab: {
+    fontSize: '12.5px',
+    marginLeft: '3px'
   }
 });
 
@@ -40,16 +44,16 @@ export default function NavBar() {
             <img style={{width: '200px', height: '90%', marginBottom:"-5px"}} src={logo3} alt='logo'  />
           </div>
         <Tabs
-          className={classes.tab}
+          className={classes.tabs}
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="inherit"
           centered
         >
-          <Tab label="Home" href="/homepage" />
-          <Tab label="Favorites" href="/favorites" />
-          <Tab label="Trip Generator" href="/generator" /> 
+          <Tab className={classes.tab} label="Home" href="/homepage" />
+          <Tab className={classes.tab} label="Favorites" href="/favorites" />
+          <Tab className={classes.tab} label="Trip Builder" href="/generator" /> 
         </Tabs>
         <Link href='/signin'>
           <Button style={{marginTop: '20px', marginLeft: '550px'}}>

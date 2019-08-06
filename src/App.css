@@ -16,16 +16,29 @@ main {
   justify-items: center;
   background-color: #E8EEF2;
   padding-top: 65px;
-  grid-template-columns: 125px 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 75px 1fr 1fr; 
+  grid-template-rows: auto; 
+}
+
+.hompage-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto;
+  justify-content: center;
+
+}
+
+.map-container {
+  grid-column-start: 3;
+  /* position: fixed; */
 }
 
 .trip-container {
   grid-column-start: 2;
+  align-content: center;
 }
 .card-grid-container {
-  /* border: 1px solid black; */
-  box-shadow: 0px 1px 1px #5AAA95;
+  /* box-shadow: 0px 1px 1px #5AAA95; */
   width: 100%;
   padding-left: 2px;
   padding-right: 2px;
@@ -37,7 +50,6 @@ main {
   justify-content: center;
   margin-bottom: 1em;
 }
-
 .trip-heading {
   grid-column-end: span 2;
   width: 100%;
@@ -92,20 +104,12 @@ main {
 
 .miniMap {
   position: fixed !important;
-  max-width: 40% !important;
-  max-height: 840px !important;
-  box-shadow: 0px 5px 5px #5AAA95 !important;
+  /* max-width: 40% !important; */
+  /* max-height: 840px !important; */
+  /* box-shadow: 0px 5px 5px #5AAA95 !important; */
   border-radius: 10px !important;
-  margin-left: -35rem;
+  /* margin-left: -35rem;  */
 }
-
-/* #root {
-  margin-top: 10em
-} */
-/* 
-div.MuiContainer-root > div.MuiContainer-maxWidthXs {
-  margin-top: 100px
-} */
 
 
 /* header and search bar addjustments */
@@ -122,7 +126,6 @@ header {
   margin-bottom: 10px;
   width: 100%;
   display:flex;
-  /* grid-column-start: 2; */
   justify-content: center;
   margin-bottom: 2em;
 }
@@ -151,8 +154,6 @@ header {
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
-  /* align-items: center; */
-  /* margin: 0 auto; */
 }
 
 

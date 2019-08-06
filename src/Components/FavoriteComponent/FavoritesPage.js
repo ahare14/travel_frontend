@@ -5,7 +5,7 @@ import Geocode from "react-geocode";
 import Swal from 'sweetalert2'
 import { thisExpression } from '@babel/types';
 
-Geocode.setApiKey('AIzaSyB31ElkAZ5mYl1cG0bPjdhzd8EtFY6rplg')
+Geocode.setApiKey('AIzaSyCJwIQJhwFabrSJmjbJdsXoJtRh92-TW0E')
 
 export default class FavoritesPage extends Component {
 
@@ -17,15 +17,6 @@ export default class FavoritesPage extends Component {
       openWindow: false
     }
   }
-
-  // updateForm = event => {
-  //   const key = event.target.name
-  //   const value = event.target.value 
-  //   this.setState(state => {
-  //     state[key] = value
-  //     return state
-  //   })
-  // }
 
   handleClick = (event) => {
     const value = event

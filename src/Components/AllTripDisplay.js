@@ -6,7 +6,7 @@ import Geocode from "react-geocode";
 import AddTripButton from './PostNewTrips/AddTripButton'
 
 
-Geocode.setApiKey('AIzaSyB31ElkAZ5mYl1cG0bPjdhzd8EtFY6rplg')
+Geocode.setApiKey('AIzaSyCJwIQJhwFabrSJmjbJdsXoJtRh92-TW0E')
 
 
 export default class AllTripDisplay extends Component {
@@ -86,15 +86,6 @@ export default class AllTripDisplay extends Component {
       }
     }
     this.props.postPhoto(apiBody)
-    // this.setState( state => {
-    //   state.title = ''
-    //   state.description = ''
-    //   state.img = ''
-    //   state.tripId = 0.0
-    //   state.location.lat = 0.0
-    //   state.location.lng = 0.0
-    //   return state
-    // })
     return apiBody
   }
 
@@ -127,22 +118,24 @@ export default class AllTripDisplay extends Component {
         </header>
         <main>
           <AddTripButton updateForm={this.updateForm} addTrip={this.addTrip}/>
-          <div className='trip-container'>
-            <TripContainer 
-              addToFavorites={this.props.addToFavorites}
-              trips={this.props.trips} 
-              pics={this.props.pics} 
-              selectTrip={this.selectTrip}
-              updateFrom={this.updateForm}
-              setTripId={this.setTripId}
-              geoCode={this.addPhotoToState}
-              addPhoto={this.addPhotoToTrip} />
-          </div>
-          <div className='map-container'>
-            <MapContainer locations={this.props.locations} 
-            location={ this.state.location.lat === 0.0
-              ? {lat: 39.7392, lng: -104.9903}
-              : this.state.location} />
+          <div className="hompage-container">
+            <div className='trip-container'>
+              <TripContainer 
+                addToFavorites={this.props.addToFavorites}
+                trips={this.props.trips} 
+                pics={this.props.pics} 
+                selectTrip={this.selectTrip}
+                updateFrom={this.updateForm}
+                setTripId={this.setTripId}
+                geoCode={this.addPhotoToState}
+                addPhoto={this.addPhotoToTrip} />
+            </div>
+            <div className='map-container'>
+              <MapContainer locations={this.props.locations} 
+              location={ this.state.location.lat === 0.0
+                ? {lat: 39.768921, lng: -104.973908}
+                : this.state.location} />
+            </div>
           </div>
         </main>
       </React.Fragment>

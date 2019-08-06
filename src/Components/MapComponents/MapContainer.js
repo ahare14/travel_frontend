@@ -10,9 +10,10 @@ export class MapContainer extends Component {
       <React.Fragment>
         <Map
         className="miniMap"
+        style={{width: '40%', height: '85%', position: 'fixed', marginLeft: '100px'}}
         google={this.props.google}
         onClick={this.props.clear}
-        zoom={13}
+        zoom={16}
         center={{lat: this.props.location.lat, lng: this.props.location.lng}}
         >
           <Marker position={{
@@ -26,7 +27,7 @@ export class MapContainer extends Component {
   }
   
   export default GoogleApiWrapper({
-    apiKey: ("AIzaSyB31ElkAZ5mYl1cG0bPjdhzd8EtFY6rplg")
+    apiKey: ("AIzaSyCJwIQJhwFabrSJmjbJdsXoJtRh92-TW0E")
   })(MapContainer)
 
  
