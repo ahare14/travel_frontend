@@ -22,7 +22,8 @@ class App extends Component {
       locations: [],
       allFavorites: [],
       favorites: [],
-      compiledFav: []
+      compiledFav: [],
+      coords: [],
     }
   }
 
@@ -33,6 +34,15 @@ class App extends Component {
     this.getUsers(userAPI)
     this.getFavorites()
     this.getFavorites2()
+    navigator.geolocation.getCurrentPosition(this.findLocationSuccess, this.findLocationFailure)
+  }
+
+  findLocationSuccess = (position) => {
+    this.setCoords(position.coords.latitude,position.coords.longitude)
+  }
+  
+  findLocationFailure = () => {
+    console.log('failed')
   }
   
   getTrips = () => {
@@ -176,11 +186,18 @@ class App extends Component {
     this.postFavorites(apiBody)
   }
 
-  render () {
+  setCoords = (lat, lng) => {
+    this.setState(state => {
+      state.coords = [...this.state.coords, lat, lng]
+      return state
+    })
+  }
+
+  render () {  
     return (
       <Router>
         <React.Fragment>
-          <Route path='/signin' exact component={SignIn}/>
+          <Route path='/signin' component={SignIn} />
           <Route path='/signup' component={SignUp} />
           <Route path='/generator' component={TripGenerator} />
           <Route path='/favorites' 
@@ -194,10 +211,11 @@ class App extends Component {
               />
             }
           />
-          <Route path='/homepage' 
+          <Route path='/' 
             render={ 
               props => 
               <AllTripDisplay {...props}
+              coords={this.state.coords}
               addToFavorites={this.addToFavorites}
               updatePicArray={this.updatedPicState}
               postPhoto={this.postPhoto}

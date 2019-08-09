@@ -131,10 +131,11 @@ export default class AllTripDisplay extends Component {
                 addPhoto={this.addPhotoToTrip} />
             </div>
             <div className='map-container'>
-              <MapContainer locations={this.props.locations} 
-              location={ this.state.location.lat === 0.0
-                ? {lat: 39.768921, lng: -104.973908}
-                : this.state.location} />
+              <MapContainer 
+                locations={this.props.locations} 
+                location={ this.state.location.lat === 0.0
+                  ? {lat: this.props.coords[0], lng: this.props.coords[1]}
+                  : this.state.location} />
             </div>
           </div>
         </main>

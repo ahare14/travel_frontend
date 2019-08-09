@@ -28,14 +28,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  // avatar: {
-  //   margin: theme.spacing(1),
-  //   backgroundColor: theme.palette.common.white,
-  // },
-  // form: {
-  //   width: '100%', // Fix IE 11 issue.
-  //   marginTop: theme.spacing(1),
-  // },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -55,13 +47,12 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form}  noValidate>
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              defaultValue="alexanderhare14@gmail.com"
               id="email"
               label="Email Address"
               name="email"
@@ -73,20 +64,15 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              defaultValue="password1"
               name="password"
               label="Password"
               type="password"
               id="password"
               autoComplete="current-password"
-            />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
+            />         
             <Link href='/homepage'>
               <Button
-                // type="submit"
+                type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
@@ -113,8 +99,3 @@ export default function SignIn() {
     </Router>
   );
 }
-                // <Link to='/signup' >
-                //   <Button variant="contained" color="primary" >
-                //   {"Don't have an account? Sign Up"}
-                //   </Button>
-                // </Link>
