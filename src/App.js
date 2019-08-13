@@ -214,7 +214,7 @@ class App extends Component {
               />
             }
           />
-          <Route path='/homepage' 
+          <Route exact path='/' 
             render={ 
               props => 
               <AllTripDisplay {...props}

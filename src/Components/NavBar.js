@@ -57,7 +57,7 @@ export default function NavBar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <Link href='/homepage'><MenuItem onClick={handleClose}>Homepage</MenuItem></Link>
+              <Link href='/'><MenuItem onClick={handleClose}>Homepage</MenuItem></Link>
               <Link href='/favorites'><MenuItem href='/favorites' onClick={handleClose}>Favorites</MenuItem></Link>
               <Link href='/generator'><MenuItem onClick={handleClose}>TripBuilder</MenuItem></Link>
             </Menu>
