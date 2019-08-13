@@ -11,6 +11,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import NavBar from '../NavBar'
+import { textAlign } from '@material-ui/system';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -133,7 +134,7 @@ export default function TransferList() {
         <NavBar />
       </header>
       <main style={{display: 'flex'}}>
-        <Grid container spacing={2} justify="center" alignItems="center" className={classes.root} >
+        {/* <Grid container spacing={2} justify="center" alignItems="center" className={classes.root} >
           <Grid item>{customList('Choices', left)}</Grid>
           <Grid item>
             <Grid container direction="column" alignItems="center">
@@ -160,7 +161,8 @@ export default function TransferList() {
             </Grid>
           </Grid>
           <Grid item>{customList('Chosen', right)}</Grid>
-        </Grid>
+        </Grid> */}
+        <h1 style={{textAlign: 'center'}}>Coming Soon!</h1>
       </main>
     </React.Fragment>
   );
