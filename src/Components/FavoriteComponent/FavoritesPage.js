@@ -27,7 +27,9 @@ export default class FavoritesPage extends Component {
     const x = value.lat.toString()
     const y = value.lng.toString()
     this.addAddressToState(x,y)
-    setTimeout(()=>{this.openAlert()}, 500)
+    .then(setTimeout(()=>{this.openAlert()}, 500))
+  
+    
   }
 
   openAlert = () => {
@@ -41,6 +43,7 @@ export default class FavoritesPage extends Component {
   addAddressToState = (x,y) => {
     return Geocode.fromLatLng(x, y).then(response => {
       const coordinates = response.results[0].formatted_address
+      
       return coordinates
     })
     .then(coordinates => this.setState(state => {
@@ -50,7 +53,7 @@ export default class FavoritesPage extends Component {
   }
 
   render () {
-    console.log(this.props.compiledFav)
+    // console.log(this.props.compiledFav)
     return (
       <React.Fragment>
         <header>
