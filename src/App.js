@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import SignIn from './Components/LoginSignUp/SignIn'
-import login from './Components/LoginSignUp/login'
+// import login from './Components/LoginSignUp/login'
 import SignUp from './Components/LoginSignUp/SignUp'
 import AllTripDisplay from './Components/AllTripDisplay'
 import FavoritesPage from './Components/FavoriteComponent/FavoritesPage';
@@ -200,7 +200,7 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <Route path='/signin' component={SignIn} />
-          <Route exact path='/' component={login} />
+          {/* <Route exact path='/' component={login} /> */}
           <Route path='/signup' component={SignUp} />
           <Route path='/generator' component={TripGenerator} />
           <Route path='/favorites' 
